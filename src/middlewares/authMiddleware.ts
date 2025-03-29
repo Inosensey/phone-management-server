@@ -10,9 +10,6 @@ interface AuthenticatedRequest extends Request {
 }
 
 export const authenticateUser = (req:AuthenticatedRequest, res:Response, next:NextFunction):void => {
-  console.log("Headers:", req.headers);  // Check headers
-  console.log("Cookies:", req.cookies);  // Check if cookies exist
-
   let token = req.headers.authorization?.split(" ")[1];
 
 //   if (!token && req.cookies) {
@@ -20,7 +17,8 @@ export const authenticateUser = (req:AuthenticatedRequest, res:Response, next:Ne
 //   }
 //   token = req.cookies["token"];
 // console.log(req.cookies);
-console.log(token);
+console.log(`token: ${token}`);
+console.log(!token);
   if (!token) return next({ status: 401, message: "Unauthorized: No token provided" });
 
   try {
