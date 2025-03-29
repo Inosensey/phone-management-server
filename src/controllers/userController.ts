@@ -239,9 +239,9 @@ export const getUsers = async (req: Request, res: Response) => {
               roles ON users.role_id = roles.id
             INNER JOIN 
               status ON users.status_id = status.id
-            WHERE roles.id = 1
-        `;
-    // const getUsersQuery = `
+              `;
+              // WHERE roles.id = 1
+              // const getUsersQuery = `
     //         DELETE FROM users WHERE id = 16
     //     `;
     const [row] = await connection.execute<RowDataPacket[]>(getUsersQuery);
