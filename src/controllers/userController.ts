@@ -442,6 +442,8 @@ export const userSignIn = async (req: Request, res: Response) => {
       { expiresIn: "1d" }
     );
 
+    console.log(token);
+
     res.cookie("token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
