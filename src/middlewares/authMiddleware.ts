@@ -16,6 +16,7 @@ export const authenticateUser = (req:AuthenticatedRequest, res:Response, next:Ne
     token = req.cookies["token"];
   }
   token = req.cookies["token"];
+console.log(req.cookies);
 console.log(token);
   if (!token) return next({ status: 401, message: "Unauthorized: No token provided" });
 
